@@ -6,7 +6,8 @@
 *.tfstate
 *.backup
 *.hcl
-.terraform
+*.terraform
+*.info
 
 # zip files created by terraform
 scraper_function/*.zip
@@ -14,3 +15,7 @@ cleaning_function/*.zip
 
 # Python logs / not necessary files
 __pycache__
+
+# SSH Keys
+ec2key
+*.pub
