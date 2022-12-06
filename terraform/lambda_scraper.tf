@@ -10,7 +10,7 @@ resource "aws_lambda_function" "lambda_scraping" {
     filename = data.archive_file.zip_scraper_files.output_path
     function_name = var.lambda_scraper_name
     role = aws_iam_role.lambda_role_s3.arn
-    layers = [aws_lambda_layer_version.lambda_layer.arn]
+    layers = [aws_lambda_layer_version.lambda_layer1.arn]
     handler = "lambda_scraper.lambda_handler"
     timeout = 300
     memory_size = 512
@@ -21,6 +21,7 @@ resource "aws_lambda_function" "lambda_scraping" {
       variables = {
         bucket_name = aws_s3_bucket.project_bucket.bucket
         raw_folder = var.raw_data_folder
+        raw_data_filename = var.raw_data_filename
       }
     }
 }

@@ -1,6 +1,6 @@
 import pandas as pd
 
-def data_cleaner(bucket_name:str, raw_dir:str):
+def data_cleaner(bucket_name:str, raw_dir:str, raw_filename:str):
 
     """
     This function takes the extracted data in It's raw format and cleans it.
@@ -9,10 +9,11 @@ def data_cleaner(bucket_name:str, raw_dir:str):
     Args:
     - bucket_name: Name of the bucket where our data Is and Will be stored.
     - raw_dir: Name of the directory inside the bucket where our raw data is stored.
+    - raw_filename: Name of the file containing the raw data.
     """
 
     # Reading the csv directly from our s3 bucket
-    df = pd.read_csv(f's3://{bucket_name}/{raw_dir}/raw_real_state.csv')
+    df = pd.read_csv(f's3://{bucket_name}/{raw_dir}/{raw_filename}')
 
     # Data must have Geo location and/or Place location. Both can't be null
     df.dropna(subset=['geo_point.lon','place.lon'], how='all', inplace=True)

@@ -18,9 +18,19 @@ variable "raw_data_folder" {
     default = "rawdata"
 }
 
+variable "raw_data_filename" {
+    type = string
+    default = "raw_real_state.csv"
+}
+
 variable "access_data_folder" {
     type = string
     default = "accessdata"
+}
+
+variable "access_data_filename" {
+    type = string
+    default = "access_real_state.csv"
 }
 
 variable "lambda_scraper_name" {
@@ -31,6 +41,11 @@ variable "lambda_scraper_name" {
 variable "lambda_cleaner_name" {
     type = string
     default = "data_cleaning"
+}
+
+variable "lambda_redshift_name" {
+    type = string
+    default = "data_redshift"
 }
 
 variable "function_runtime" {

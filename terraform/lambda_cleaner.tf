@@ -10,7 +10,7 @@ resource "aws_lambda_function" "lambda_cleaner" {
     filename = data.archive_file.zip_cleaner_files.output_path
     function_name = var.lambda_cleaner_name
     role = aws_iam_role.lambda_role_s3.arn
-    layers = [aws_lambda_layer_version.lambda_layer.arn]
+    layers = [aws_lambda_layer_version.lambda_layer1.arn]
     handler = "lambda_cleaner.lambda_handler"
     timeout = 300
     memory_size = 512
@@ -22,6 +22,8 @@ resource "aws_lambda_function" "lambda_cleaner" {
         bucket_name = aws_s3_bucket.project_bucket.bucket
         raw_folder = var.raw_data_folder
         access_folder = var.access_data_folder
+        raw_data_filename = var.raw_data_filename
+        access_data_filename = var.access_data_filename
       }
     }
 }

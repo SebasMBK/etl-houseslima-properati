@@ -20,7 +20,7 @@ resource "aws_iam_role" "lambda_role_s3" {
 EOF
 }
 
-# This policy allows lambda to write logs to cloudwatch and write files to S3
+# This policy allows lambda to write logs to cloudwatch, access to redshift and write files to S3
 resource "aws_iam_policy" "lambda_s3_policy" {
   name = "lambda-s3-policy"
   description = "Policy for lambda access to S3"
@@ -43,6 +43,13 @@ resource "aws_iam_policy" "lambda_s3_policy" {
             "s3:*"
         ],
         "Resource": "arn:aws:s3:::*"
+    },
+    {
+        "Effect": "Allow",
+        "Action": [
+            "redshift:*"
+        ],
+        "Resource": "arn:aws:redshift:::*"
     }
 ]
 

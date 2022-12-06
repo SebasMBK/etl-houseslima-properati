@@ -11,6 +11,7 @@ requests = "*"
 pydantic = "*"
 psycopg2 = "*"
 streamlit = "*"
+redshift-connector = "*"
 
 [dev-packages]
 

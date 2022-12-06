@@ -22,9 +22,16 @@ resource "aws_s3_bucket_versioning" "packages_bucket_versioning" {
     }
 }
 
-resource "aws_s3_object" "packages" {
+resource "aws_s3_object" "packages1" {
     bucket = aws_s3_bucket.packages_bucket.bucket
-    key = "packages.zip"
-    source = "../packages/lambdapackages.zip"
+    key = "packages1.zip"
+    source = "../packages/packages1.zip"
 }
+
+resource "aws_s3_object" "packages2" {
+    bucket = aws_s3_bucket.packages_bucket.bucket
+    key = "packages2.zip"
+    source = "../packages/packages2.zip"
+}
+
 

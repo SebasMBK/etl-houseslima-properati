@@ -9,16 +9,18 @@ def lambda_handler(event, context):
     
     # Getting env variables passed when creating the lambda function with terraform
     bucket_name = os.environ['bucket_name']
-    raw_folder = os.environ['raw_folder']
+    raw_dir = os.environ['raw_folder']
     access_folder =  os.environ['access_folder']
+    raw_filename = os.environ['raw_data_filename']
+    access_filename = os.environ['access_data_filename']
 
 
-    access_level_data = data_cleaner(bucket_name=bucket_name, raw_dir=raw_folder)
+    access_level_data = data_cleaner(bucket_name=bucket_name, raw_dir=raw_dir, raw_filename=raw_filename)
 
     try:    
 
         validated_file = [realstate.parse_obj(data_) for data_ in access_level_data]
-        uploader_s3(bucket_name=bucket_name, access_dir=access_folder, cleaned_data=access_level_data)
+        uploader_s3(bucket_name=bucket_name, access_dir=access_folder, access_filename=access_filename, cleaned_data=access_level_data)
 
         return {
         "statusCode":200,

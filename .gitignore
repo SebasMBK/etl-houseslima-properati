@@ -12,6 +12,7 @@
 # zip files created by terraform
 scraper_function/*.zip
 cleaning_function/*.zip
+upload_redshift_function/*.zip
 
 # Python logs / not necessary files
 __pycache__
