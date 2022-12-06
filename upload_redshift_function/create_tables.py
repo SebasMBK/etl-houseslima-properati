@@ -1,6 +1,12 @@
 import redshift_connector
 
-def create_table_main(host:str, database:str, user:str, password:str):
+def create_table_main(
+    host:str,
+    database:str,
+    user:str,
+    password:str,
+    main_table:str
+):
 
     with redshift_connector.connect(
 
@@ -15,9 +21,9 @@ def create_table_main(host:str, database:str, user:str, password:str):
 
         with conn.cursor() as cursor:
 
-            cursor.execute("""
+            cursor.execute(f"""
 
-            CREATE TABLE IF NOT EXISTS realstatedata (
+            CREATE TABLE IF NOT EXISTS {main_table} (
             id INT NOT NULL PRIMARY KEY,
             type VARCHAR(100),
             score NUMERIC(8,7),
@@ -36,7 +42,14 @@ def create_table_main(host:str, database:str, user:str, password:str):
             """)
             
 
-def create_table_staging(host,database,user,password):
+def create_table_staging(
+    host:str,
+    database:str,
+    user:str,
+    password:str,
+    main_table:str,
+    staging_table:str
+):
 
     with redshift_connector.connect(
 
@@ -51,6 +64,6 @@ def create_table_staging(host,database,user,password):
 
         with conn.cursor() as cursor:
             
-            cursor.execute("""
-            CREATE TABLE IF NOT EXISTS realstatedata_staging (LIKE realstatedata);
+            cursor.execute(f"""
+            CREATE TABLE IF NOT EXISTS {staging_table} (LIKE {main_table});
             """)

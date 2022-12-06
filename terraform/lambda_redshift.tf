@@ -26,6 +26,7 @@ resource "aws_lambda_function" "lambda_redshift" {
         username = aws_redshift_cluster.realstate_cluster.master_username
         password = aws_redshift_cluster.realstate_cluster.master_password
         endpoint = aws_redshift_cluster.realstate_cluster.endpoint
+        role_arn = aws_iam_role.project_redshift_role.arn
       }
     }
 }
