@@ -19,7 +19,8 @@ resource "aws_lambda_function" "lambda_cleaner" {
 
     environment {
       variables = {
-        bucket_name = aws_s3_bucket.project_bucket.bucket
+        raw_bucket_name = aws_s3_bucket.raw_project_bucket.bucket
+        clean_bucket_name = aws_s3_bucket.clean_project_bucket.bucket
         raw_folder = var.raw_data_folder
         access_folder = var.access_data_folder
         raw_data_filename = var.raw_data_filename

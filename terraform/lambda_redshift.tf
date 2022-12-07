@@ -19,7 +19,7 @@ resource "aws_lambda_function" "lambda_redshift" {
 
     environment {
       variables = {
-        bucket_name = aws_s3_bucket.project_bucket.bucket
+        clean_bucket_name = aws_s3_bucket.clean_project_bucket.bucket
         access_folder = var.access_data_folder
         access_data_filename = var.access_data_filename
         database = aws_redshift_cluster.realstate_cluster.database_name

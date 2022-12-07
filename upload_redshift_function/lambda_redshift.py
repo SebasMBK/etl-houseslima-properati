@@ -8,7 +8,7 @@ import os
 def lambda_handler(event, context):
     
     # Getting env variables passed when creating the lambda function with terraform
-    bucket_name = os.environ['bucket_name']
+    clean_bucket_name = os.environ['clean_bucket_name']
     access_folder = os.environ['access_folder']
     access_data_filename = os.environ['access_data_filename']
     host = os.environ['endpoint'].split(":")[0]
@@ -42,7 +42,7 @@ def lambda_handler(event, context):
         database=database,
         user=user,
         password=password,
-        bucket_name=bucket_name,
+        clean_bucket_name=clean_bucket_name,
         access_folder=access_folder,
         access_data_filename=access_data_filename,
         staging_table=staging_table,

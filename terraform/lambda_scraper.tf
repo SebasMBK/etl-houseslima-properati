@@ -19,7 +19,7 @@ resource "aws_lambda_function" "lambda_scraping" {
 
     environment {
       variables = {
-        bucket_name = aws_s3_bucket.project_bucket.bucket
+        raw_bucket_name = aws_s3_bucket.raw_project_bucket.bucket
         raw_folder = var.raw_data_folder
         raw_data_filename = var.raw_data_filename
       }

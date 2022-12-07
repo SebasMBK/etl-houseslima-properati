@@ -3,9 +3,14 @@ variable "project_region" {
     default = "us-east-1"
 }
 
-variable "bucket_name" {
+variable "raw_bucket_name" {
     type = string
-    default = "realstatelima"
+    default = "rawrealstatelima"
+}
+
+variable "clean_bucket_name" {
+    type = string
+    default = "cleanrealstatelima"
 }
 
 variable "packages_bucket_name" {

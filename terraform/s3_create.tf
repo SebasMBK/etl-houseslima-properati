@@ -1,10 +1,22 @@
-resource "aws_s3_bucket" "project_bucket" {
-    bucket = var.bucket_name
+resource "aws_s3_bucket" "raw_project_bucket" {
+    bucket = var.raw_bucket_name
     force_destroy = true
 }
 
-resource "aws_s3_bucket_versioning" "bucket_versioning" {
-    bucket = aws_s3_bucket.project_bucket.id
+resource "aws_s3_bucket_versioning" "raw_bucket_versioning" {
+    bucket = aws_s3_bucket.raw_project_bucket.id
+    versioning_configuration {
+        status = "Enabled"
+    }
+}
+
+resource "aws_s3_bucket" "clean_project_bucket" {
+    bucket = var.clean_bucket_name
+    force_destroy = true
+}
+
+resource "aws_s3_bucket_versioning" "clean_bucket_versioning" {
+    bucket = aws_s3_bucket.clean_project_bucket.id
     versioning_configuration {
         status = "Enabled"
     }

@@ -5,7 +5,7 @@ def upload_to_staging(
     database:str,
     user:str,
     password:str,
-    bucket_name:str,
+    clean_bucket_name:str,
     access_folder:str,
     access_data_filename:str,
     staging_table:str,
@@ -27,7 +27,7 @@ def upload_to_staging(
 
             cursor.execute(f"""
 
-            COPY {staging_table} FROM 's3://{bucket_name}/{access_folder}/{access_data_filename}'
+            COPY {staging_table} FROM 's3://{clean_bucket_name}/{access_folder}/{access_data_filename}'
             CREDENTIALS 'aws_iam_role={iam_role_arn}' IGNOREHEADER 1 DELIMITER ',' CSV;
 
             """)
