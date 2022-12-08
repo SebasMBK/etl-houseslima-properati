@@ -1,0 +1,23 @@
+# Files
+*.xlsx
+*.csv
+
+# Terraform
+terraform/*.tfstate
+terraform/*.backup
+terraform/*.hcl
+terraform/*.terraform
+terraform/*.info
+
+# zip files created by terraform
+lambda_functions/scraper_function/*.zip
+lambda_functions/cleaning_function/*.zip
+lambda_functions/upload_redshift_function/*.zip
+
+# Python logs / not necessary files
+lambda_functions/scraper_function/__pycache__
+lambda_functions/cleaning_function/__pycache__
+lambda_functions/upload_redshift_function/__pycache__
+
+# readme
+*.md

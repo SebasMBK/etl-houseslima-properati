@@ -1,8 +1,8 @@
 # This will compress all the files inside the directory "scraper_function"
 data "archive_file" "zip_redshift_files" {
     type = "zip"
-    source_dir = "../upload_redshift_function/"
-    output_path = "../upload_redshift_function/lambda_redshift.zip"
+    source_dir = "../lambda_functions/upload_redshift_function/"
+    output_path = "../lambda_functions/upload_redshift_function/lambda_redshift.zip"
 }
 
 # This creates the lambda function

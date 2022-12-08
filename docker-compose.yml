@@ -1,0 +1,9 @@
+---
+version: '3'
+services:
+  dev_env:
+    build: .
+    container_name: dev_project
+    # I'm using this command to keep the container running. There other ways to prevent a container
+    # from exiting when not running a command, but I'm using this since it's a very simple hack.
+    command: tail -F anything

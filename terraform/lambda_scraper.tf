@@ -1,8 +1,8 @@
 # This will compress all the files inside the directory "scraper_function"
 data "archive_file" "zip_scraper_files" {
     type = "zip"
-    source_dir = "../scraper_function/"
-    output_path = "../scraper_function/lambda_scraper.zip"
+    source_dir = "../lambda_functions/scraper_function/"
+    output_path = "../lambda_functions/scraper_function/lambda_scraper.zip"
 }
 
 # This creates the lambda function
