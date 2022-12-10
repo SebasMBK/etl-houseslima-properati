@@ -1,0 +1,6 @@
+- name: Streamlit app
+  hosts: streamlit
+  tasks:
+
+    - name: Streamlit
+      shell: "tmux new-session -d -s streamlit_session 'streamlit hello'"

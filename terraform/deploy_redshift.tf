@@ -11,4 +11,12 @@ resource "aws_redshift_cluster" "realstate_cluster" {
   publicly_accessible                 = true
   automated_snapshot_retention_period = 0
   vpc_security_group_ids              = [aws_security_group.project_security_group.id]
+
+# Logging
+  logging {
+    enable = true
+    log_destination_type = "cloudwatch"
+    log_exports = ["connectionlog","userlog","useractivitylog"]
+  }
+
 }

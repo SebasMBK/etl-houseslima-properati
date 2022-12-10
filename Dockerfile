@@ -1,4 +1,7 @@
 FROM ubuntu:22.04
+# This "ARG" is necessary to bypass the bug where the ansible installation will you ask to insert
+# some geopraphic information stopping the process.
+ARG DEBIAN_FRONTEND=noninteractive
 USER root
 
 RUN apt-get update \
@@ -34,6 +37,14 @@ RUN apt-get install -y gnupg software-properties-common \
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
     && unzip awscliv2.zip \
     && ./aws/install
+
+# Installing Ansible
+RUN apt install software-properties-common \
+    # boto3 is necessary for the Ansible aws plugin
+    && apt install python3-boto3 -y \
+    && apt-add-repository --yes --update ppa:ansible/ansible \
+    && apt install ansible -y
+
 
 # Cleaning the cache
 RUN apt-get clean
