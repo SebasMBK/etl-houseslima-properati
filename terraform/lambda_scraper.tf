@@ -40,7 +40,7 @@ resource "aws_lambda_function_url" "lambda_url_scraper" {
 
 # Logging
 resource "aws_cloudwatch_log_group" "lambda_scraper_logs" {
-  name = "/aws/lambda/${var.lambda_scraper_name}"
+  name              = "/aws/lambda/${var.lambda_scraper_name}"
   retention_in_days = 7
 }
 

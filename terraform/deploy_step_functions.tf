@@ -64,17 +64,17 @@ resource "aws_sfn_state_machine" "step_functions" {
   }
 }
 EOF
-  
+
   logging_configuration {
-    log_destination = "${aws_cloudwatch_log_group.stepfunctions_logs.arn}:*"
+    log_destination        = "${aws_cloudwatch_log_group.stepfunctions_logs.arn}:*"
     include_execution_data = true
-    level = "ALL"
+    level                  = "ALL"
   }
 
 }
 
 # Logging
 resource "aws_cloudwatch_log_group" "stepfunctions_logs" {
-  name = "/aws/states/project_state_machine"
+  name              = "/aws/states/project_state_machine"
   retention_in_days = 7
 }

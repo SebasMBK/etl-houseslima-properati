@@ -45,6 +45,6 @@ resource "aws_lambda_function_url" "lambda_url_redshift" {
 
 # Logging
 resource "aws_cloudwatch_log_group" "lambda_redshift_logs" {
-  name = "/aws/lambda/${var.lambda_redshift_name}"
+  name              = "/aws/lambda/${var.lambda_redshift_name}"
   retention_in_days = 7
 }
