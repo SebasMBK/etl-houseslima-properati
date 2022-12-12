@@ -55,3 +55,4 @@ COPY ./ansible ./ansible
 COPY ./terraform ./terraform
 COPY ./packages ./packages
 COPY ./lambda_functions ./lambda_functions
+COPY run_pipeline.sh ./run_pipeline.sh

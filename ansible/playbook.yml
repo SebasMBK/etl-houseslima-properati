@@ -4,3 +4,6 @@
 
     - name: Streamlit
       shell: "tmux new-session -d -s streamlit_session 'streamlit hello'"
+    
+    - name: Server information
+      debug: msg="You can now access your application on this URL http://{{ inventory_hostname }}:8501"
