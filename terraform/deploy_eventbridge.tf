@@ -2,7 +2,7 @@
 resource "aws_cloudwatch_event_rule" "step_functions_schedule" {
   name                = "schedule_pipeline"
   description         = "Schedule AWS Step Functions containing Lambda functions"
-  schedule_expression = "rate(1 hours)"
+  schedule_expression = "rate(60 minutes)"
   role_arn            = aws_iam_role.eventbridge_role.arn
 
 }
