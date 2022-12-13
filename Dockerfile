@@ -37,7 +37,7 @@ RUN apt-get install -y gnupg software-properties-common \
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
     && unzip awscliv2.zip \
     && ./aws/install
-
+    
 # Installing Ansible
 RUN apt install software-properties-common \
     # boto3 is necessary for the Ansible aws plugin
