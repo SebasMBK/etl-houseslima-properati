@@ -20,3 +20,8 @@ __pycache__
 # SSH Keys
 ec2key
 *.pub
+
+# Container files
+flask_api/containers.json
+flask_api/public-endpoint.json
+flask_api/deploy_commands.txt

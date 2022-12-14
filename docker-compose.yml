@@ -4,6 +4,8 @@ services:
   dev_env:
     build: .
     container_name: dev_project
-    # I'm using this command to keep the container running. There other ways to prevent a container
-    # from exiting when not running a command, but I'm using this since it's a very simple hack.
-    command: tail -F anything
+    volumes:
+      - ./flask_api:/home/project/flask_api
+      - ./ansible:/home/project/ansible
+    command: |
+      tail -F anything

@@ -82,3 +82,18 @@ variable "redshift_cluster" {
   type    = string
   default = "realstate-lima-cluster"
 }
+
+variable "container_service_name" {
+  type = string
+  default = "flask-api-service"
+}
+
+variable "container_flag" {
+  type = string
+  default = "flask-application"
+}
+
+variable "docker_image_name" {
+  type = string
+  default = "flask-api-image"
+}
