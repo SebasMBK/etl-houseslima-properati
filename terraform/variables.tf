@@ -66,11 +66,13 @@ variable "function_arch" {
 variable "redshift_user" {
   type        = string
   description = "User for Redshift"
+  sensitive = true
 }
 
 variable "redshift_pass" {
   type        = string
   description = "Password for Redshift"
+  sensitive = true
 }
 
 variable "redshift_dbname" {

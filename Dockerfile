@@ -56,4 +56,3 @@ COPY ./terraform ./terraform
 COPY ./packages ./packages
 COPY ./lambda_functions ./lambda_functions
 COPY run_pipeline.sh ./run_pipeline.sh
-COPY run_streamlit.sh ./run_streamlit.sh
