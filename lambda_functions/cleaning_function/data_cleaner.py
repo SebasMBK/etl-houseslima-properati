@@ -18,6 +18,15 @@ def data_cleaner(raw_bucket_name:str, raw_dir:str, raw_filename:str):
     # Data must have Geo location and/or Place location. Both can't be null
     df.dropna(subset=['geo_point.lon','place.lon'], how='all', inplace=True)
 
+    # Surface can't be empty. This is critical information
+    df.dropna(subset=['surface.total'], how='all', inplace=True)
+
+    # Bedrooms can't be empty. This is critical information
+    df.dropna(subset=['floor_plan.bedrooms'], how='all', inplace=True)
+
+    # Bathrooms can't be empty. This is critical information
+    df.dropna(subset=['floor_plan.bathrooms'], how='all', inplace=True)
+
     # Changing the names of the columns
     df.rename(
             columns=
