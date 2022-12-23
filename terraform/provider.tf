@@ -5,7 +5,7 @@ terraform {
       version = "~> 4.0"
     }
     awslightsail = {
-      source = "DeYoungTech/awslightsail"
+      source  = "DeYoungTech/awslightsail"
       version = "0.7.0"
     }
   }

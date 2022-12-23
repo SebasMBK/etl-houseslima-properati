@@ -66,13 +66,13 @@ variable "function_arch" {
 variable "redshift_user" {
   type        = string
   description = "User for Redshift"
-  sensitive = true
+  sensitive   = true
 }
 
 variable "redshift_pass" {
   type        = string
   description = "Password for Redshift"
-  sensitive = true
+  sensitive   = true
 }
 
 variable "redshift_dbname" {
@@ -86,16 +86,16 @@ variable "redshift_cluster" {
 }
 
 variable "container_service_name" {
-  type = string
+  type    = string
   default = "flask-api-service"
 }
 
 variable "container_flag" {
-  type = string
+  type    = string
   default = "flask-application"
 }
 
 variable "docker_image_name" {
-  type = string
+  type    = string
   default = "flask-api-image"
 }
