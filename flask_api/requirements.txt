@@ -1,1 +1,5 @@
-flask===1.1.2
+flask
+flask-smorest
+python-dotenv
+sqlalchemy
+flask-sqlalchemy
