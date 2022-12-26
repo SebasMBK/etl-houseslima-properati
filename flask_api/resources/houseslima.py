@@ -1,11 +1,10 @@
 from flask.views import MethodView
-from flask_smorest import abort, blueprint
-from resources.schema import UpdateHouseSchema, HousesSchema
+from flask_smorest import abort, Blueprint
+from resources.schema import HousesSchema
 from models import HouseslimaModel
 from db import db
-from sqlalchemy.exc import SQLAlchemyError
 
-blp = blueprint("Houseslima", __name__, description="Operations on Houseslima")
+blp = Blueprint("Houseslima", __name__, description="Operations on Houseslima")
 
 # Methods for the API's endpoint/s
 

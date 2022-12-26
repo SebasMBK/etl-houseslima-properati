@@ -5,7 +5,7 @@ Houses
 """
 
 class HousesSchema(Schema):
-    id = fields.Str(dump_only=True)
+    id = fields.Int(dump_only=True)
     type = fields.Str(dump_only=True)
     score = fields.Float(dump_only=True)
     title = fields.Str(dump_only=True)
