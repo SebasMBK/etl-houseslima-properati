@@ -25,3 +25,5 @@ ec2key
 flask_api/containers.json
 flask_api/public-endpoint.json
 flask_api/deploy_commands.txt
+# This docker compose file is just for testing. Everything will be runned inside a AWS lighstsail container
+flask_api/docker-compose.yml
