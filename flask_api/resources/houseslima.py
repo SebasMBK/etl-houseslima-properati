@@ -8,6 +8,11 @@ blp = Blueprint("Houseslima", __name__, description="Operations on Houseslima")
 
 # Methods for the API's endpoint/s
 
+@blp.route("/")
+class Mainpage(MethodView):
+    def get(self):
+        return "Houseslima Project's API"
+
 @blp.route("/properties")
 class Allproperties(MethodView):
 

@@ -19,7 +19,8 @@ resource "local_file" "containers_json" {
                 "redshift_pass":"${var.redshift_pass}",
                 "redshift_database":"${var.redshift_dbname}",
                 "redshift_host":"${aws_redshift_cluster.realstate_cluster.endpoint}",
-                "redshift_port":"${aws_redshift_cluster.realstate_cluster.port}"
+                "redshift_port":"${aws_redshift_cluster.realstate_cluster.port}",
+                "DATABASE_URL":"postgresql://${var.redshift_user}:${var.redshift_pass}@${aws_redshift_cluster.realstate_cluster.endpoint}/${var.redshift_dbname}"
         }
     }
 }

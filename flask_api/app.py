@@ -10,7 +10,6 @@ def create_app(db_url=None):
 
     # Config
     app.config["PROPAGATE_EXCEPTIONS"] = True
-    app.config['JSON_SORT_KEYS'] = False
     app.config["API_TITLE"] = "Houses Lima Database API"
     app.config["API_VERSION"] = "v1.0"
     app.config["OPENAPI_VERSION"] = "3.0.3"
