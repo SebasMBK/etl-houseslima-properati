@@ -5,6 +5,8 @@ services:
     build: .
     container_name: dev_project
     volumes:
+        # This is necessary for the files that will be generated to start lightsail
+      - ./flask_api:/home/project/flask_api
       - ./ansible:/home/project/ansible
     command: |
       tail -F anything
