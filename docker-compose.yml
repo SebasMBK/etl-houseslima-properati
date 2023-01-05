@@ -5,7 +5,6 @@ services:
     build: .
     container_name: dev_project
     volumes:
-      - ./flask_api:/home/project/flask_api
       - ./ansible:/home/project/ansible
     command: |
       tail -F anything
