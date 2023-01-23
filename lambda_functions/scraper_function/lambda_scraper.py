@@ -11,7 +11,7 @@ def lambda_handler(event, context):
     raw_filename = os.environ['raw_data_filename']
 
 
-    df = data_scraper(nr_pages=1)
+    df = data_scraper(nr_pages=20)
 
     uploader_s3(raw_bucket_name=raw_bucket_name,
                 raw_folder=raw_folder,

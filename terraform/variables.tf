@@ -87,15 +87,15 @@ variable "redshift_cluster" {
 
 variable "container_service_name" {
   type    = string
-  default = "flask-api-service"
+  default = "flask-api-app-properati"
 }
 
 variable "container_flag" {
   type    = string
-  default = "flask-application"
+  default = "flask-application-properati"
 }
 
 variable "docker_image_name" {
   type    = string
-  default = "flask-api-image"
+  default = "flask-api-image-properati"
 }

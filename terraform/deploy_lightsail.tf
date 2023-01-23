@@ -1,51 +1,71 @@
+# This executes the command that will build our locally created docker image
+resource "null_resource" "create-properati-image" {
+  provisioner "local-exec" {
+
+    command = "docker build -t ${var.docker_image_name} ."
+    working_dir = "../flask_api/"
+  
+  }
+}
+
 resource "awslightsail_container_service" "lightsail_container" {
   name        = var.container_service_name
   power       = "micro"
   scale       = 1
   is_disabled = false
+
+  depends_on = [
+    null_resource.create-properati-image
+  ]
 }
 
-# This file will be used to deploy the Flask API APP inside the container
-resource "local_file" "containers_json" {
-  content  = <<EOF
-{
-    "${var.container_service_name}": {
-        "image": ":${var.container_service_name}.${var.container_flag}.1",
-        "ports": {
-            "5000": "HTTP"
-        },
-        "environment": {
-                "redshift_user":"${var.redshift_user}",
-                "redshift_pass":"${var.redshift_pass}",
-                "redshift_database":"${var.redshift_dbname}",
-                "redshift_host":"${aws_redshift_cluster.realstate_cluster.endpoint}",
-                "redshift_port":"${aws_redshift_cluster.realstate_cluster.port}",
-                "DATABASE_URL":"postgresql://${var.redshift_user}:${var.redshift_pass}@${aws_redshift_cluster.realstate_cluster.endpoint}/${var.redshift_dbname}"
-        }
+# This command will push our locally created docker image to Lightsail continers repository
+resource "null_resource" "push-properati-image-to-lightsail" {
+  provisioner "local-exec" {
+
+    command = "aws lightsail push-container-image --service-name ${var.container_service_name} --label ${var.container_flag} --region ${var.project_region} --image ${var.docker_image_name}"
+    working_dir = "../flask_api/"
+  }
+
+  depends_on = [
+    awslightsail_container_service.lightsail_container
+  ]
+}
+
+# This deploys the container
+resource "awslightsail_container_deployment" "flask_api_container" {
+  container_service_name = awslightsail_container_service.lightsail_container.id
+  container {
+    container_name = var.container_service_name
+    image          = ":${var.container_service_name}.${var.container_flag}.latest"
+
+    port {
+      port_number = 80
+      protocol    = "HTTP"
     }
-}
-EOF
-  filename = "../flask_api/containers.json"
-}
 
-# This file will be used to create a public endpoint to the container
-resource "local_file" "public_endpoint_json" {
-  content  = <<EOF
-{
-    "containerName": "${var.container_service_name}",
-    "containerPort": 5000
-}
-EOF
-  filename = "../flask_api/public-endpoint.json"
-}
+    environment {
+      key = "DATABASE_URL"
+      value = "postgresql://${var.redshift_user}:${var.redshift_pass}@${aws_redshift_cluster.realstate_cluster.endpoint}/${var.redshift_dbname}"
+    }
+  }
 
-# This will create the file that indicates what commands we will be running to deploy
-# the lightsail container
-resource "local_file" "deploy_commands" {
-  content  = <<EOF
-1. docker build -t ${var.docker_image_name} .
-2. aws lightsail push-container-image --service-name ${var.container_service_name} --label ${var.container_flag} --region ${var.project_region} --image ${var.docker_image_name}
-3. aws lightsail create-container-service-deployment --service-name ${var.container_service_name} --containers file://containers.json --public-endpoint file://public-endpoint.json
-EOF
-  filename = "../flask_api/deploy_commands.txt"
+  public_endpoint {
+    container_name = var.container_service_name
+    container_port = 80
+
+    health_check {
+      healthy_threshold   = 2
+      unhealthy_threshold = 2
+      timeout_seconds     = 2
+      interval_seconds    = 5
+      path                = "/"
+      success_codes       = "200-499"
+    }
+  }
+
+  depends_on = [
+    null_resource.push-properati-image-to-lightsail
+  ]
+
 }
