@@ -19,6 +19,8 @@ The tools that were used for the project are:
 
 ## Project's Architecture
 
+![project_arch](https://github.com/SebasMBK/etl-houseslima-properati/blob/main/images/aws_arch.png)
+
 1. Extracting data from [Properati](https://www.properati.com.pe/)
 2. The extracted data is validated, cleaned and uploaded to redshift.
 3. A Flask REST API is created for the database so we can interact with the data inside our Data Warehouse.
