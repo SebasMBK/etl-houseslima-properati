@@ -27,7 +27,7 @@ def create_table_main(
             id INT NOT NULL PRIMARY KEY,
             type VARCHAR(100),
             score NUMERIC(8,7),
-            title VARCHAR(255),
+            title VARCHAR(8000),
             bedrooms INT,
             bathrooms INT,
             price INT,
