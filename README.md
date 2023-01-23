@@ -19,7 +19,7 @@ The tools that were used for the project are:
 
 ## Project's Architecture
 
-![project_arch](https://github.com/SebasMBK/etl-houseslima-properati/blob/main/images/aws_arch.png)
+![project_arch](https://github.com/SebasMBK/etl-houseslima-properati/blob/master/images/aws_arch.png)
 
 1. Extracting data from [Properati](https://www.properati.com.pe/)
 2. The extracted data is validated, cleaned and uploaded to redshift.
