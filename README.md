@@ -45,9 +45,7 @@ This pipeline is scheduled hourly, so we can wait 1 hour for the pipeline to run
 |---|---|---|
 |`/properties`| GET| No parameters required. This request retrieves all the data from our database.|
 |`/properties`| POST| id(int), type(str), score(int), title(str), bedrooms(int), bathrooms(int), price(int), surface(int), district(str), geo_lon(float), geo_lat(float), place_lon(float), place_lat(float)|
-|`/properties`| GET| No parameters required. This request retrieves all the data from our database.|
 |`/properties/<int:id>`| GET| No parameters required. This request retrieves an specific property from our database by its id.|
 
 - The Flask API URL can be found in the AWS lightsail container service.
-- All endpoints require an authorization header. The access token is provided when the login endpoint is used.
 - The path URL/swagger-ui will show the documentation of the Flask API.
