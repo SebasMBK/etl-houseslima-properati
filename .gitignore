@@ -16,6 +16,7 @@ lambda_functions/upload_redshift_function/*.zip
 
 # Python logs / not necessary files
 __pycache__
+.pytest_cache
 
 # SSH Keys
 ec2key
