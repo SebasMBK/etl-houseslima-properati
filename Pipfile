@@ -10,8 +10,8 @@ s3fs = "*"
 requests = "*"
 pydantic = "*"
 psycopg2 = "*"
-streamlit = "*"
 redshift-connector = "*"
+pytest = "*"
 
 [dev-packages]
 
