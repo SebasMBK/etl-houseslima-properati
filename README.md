@@ -20,7 +20,7 @@ The tools that were used for the project are:
 
 ## Project's Architecture
 
-![project_arch](https://github.com/SebasMBK/etl-houseslima-properati/blob/master/images/aws_arch.png)
+![project_arch](https://github.com/SebasMBK/etl-houseslima-properati/blob/master/images/aws_arch.png) 
 
 1. Extracting data from [Properati](https://www.properati.com.pe/)
 2. The extracted data is validated, cleaned and uploaded to redshift.
@@ -35,16 +35,16 @@ These next requirements need to be installed locally for the correct functioning
 4. [Docker](https://www.docker.com/) to containerize the Flask REST API App image.
 
 ## Start Pipeline
-Terraform will initialize everything that we need for the creation of the pipeline. Just clone the repo and execute the next commands inside the terraform folder:
-1.  `aws configure`: This command is used to login into an AWS Account using your secret access keys.
-2.  `terraform init`: This will initiate terraform in the folder.
-3.  `terraform apply`: This will create our infraestructure. You will be prompt to input a redshift password and user.
-4.  (Only run if you want to destroy the infraestructure) `terraform destroy`: This destroys the created infraestructure.
-
-Now for testing, let's go to our root folder and run: \
-`pytest`: This will run some tests to make sure the web page works as we want to.
-          The first test will make sure that we recieve the response 200, meaning that the webpage exists and we have access to it.
-          The second test will make sure that the limit of elements per page is 30.
+For testing, let's go to our root folder and run: \
+`pytest`: This will run some tests to make sure the web page works as we want to. \
+          The first test will make sure that we recieve the response 200, meaning that the webpage exists and we have access to it.\
+          The second test will make sure that the limit of elements per page is 30.\
+          
+Now to create the pipeline, terraform will initialize everything that we need. Just clone the repo and execute the next commands inside the terraform folder:\
+1.  `aws configure`: This command is used to login into an AWS Account using your secret access keys. \
+2.  `terraform init`: This will initiate terraform in the folder. \
+3.  `terraform apply`: This will create our infraestructure. You will be prompt to input a redshift password and user. \
+4.  (Only run if you want to destroy the infraestructure) `terraform destroy`: This destroys the created infraestructure. \
 
 This pipeline is scheduled hourly, so we can wait 1 hour for the pipeline to run or run our Step Functions' State Machines manually.
 
