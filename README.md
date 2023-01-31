@@ -53,7 +53,7 @@ This pipeline is scheduled hourly, so we can wait 1 hour for the pipeline to run
 |Path|Request Type| Parameters|
 |---|---|---|
 |`/properties`| GET| No parameters required. This request retrieves all the data from our database.|
-|`/properties`| POST| id(int), type(str), score(int), title(str), bedrooms(int), bathrooms(int), price(int), surface(int), district(str), geo_lon(float), geo_lat(float), place_lon(float), place_lat(float)|
+|`/properties`| POST| id(int), type(str), title(str), bedrooms(int), bathrooms(int), price(int), surface(int), district(str), geo_lon(float), geo_lat(float), place_lon(float), place_lat(float)|
 |`/properties/<int:id>`| GET| No parameters required. This request retrieves an specific property from our database by its id.|
 
 - The Flask API URL can be found in the AWS lightsail container service.
