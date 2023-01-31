@@ -41,7 +41,7 @@ Terraform will initialize everything that we need for the creation of the pipeli
 3.  `terraform apply`: This will create our infraestructure. You will be prompt to input a redshift password and user.
 4.  (Only run if you want to destroy the infraestructure) `terraform destroy`: This destroys the created infraestructure.
 
-Now for testing, let's go to our root folder and run:
+Now for testing, let's go to our root folder and run: \
 `pytest`: This will run some tests to make sure the web page works as we want to.
           The first test will make sure that we recieve the response 200, meaning that the webpage exists and we have access to it.
           The second test will make sure that the limit of elements per page is 30.
