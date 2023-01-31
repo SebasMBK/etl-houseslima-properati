@@ -15,6 +15,7 @@ The tools that were used for the project are:
 - [Terraform](https://www.terraform.io/) as IaC for the infra provisioning.
 - [Docker](https://www.docker.com/) for containerizing our FLASK APP.
 - [Insomnia](https://insomnia.rest/) and [Flask](https://flask.palletsprojects.com/en/2.2.x/) for testing and developing our REST API.
+- [pytest] (https://docs.pytest.org/en/7.2.x/) for testing the response we recieve from the webpage.
 - [Python](https://www.python.org/) as the main programming language.
 
 ## Project's Architecture
@@ -39,6 +40,11 @@ Terraform will initialize everything that we need for the creation of the pipeli
 2.  `terraform init`: This will initiate terraform in the folder.
 3.  `terraform apply`: This will create our infraestructure. You will be prompt to input a redshift password and user.
 4.  (Only run if you want to destroy the infraestructure) `terraform destroy`: This destroys the created infraestructure.
+
+Now for testing, let's go to our root folder and run:
+`pytest`: This will run some tests to make sure the web page works as we want to.
+          The first test will make sure that we recieve the response 200, meaning that the webpage exists and we have access to it.
+          The second test will make sure that the limit of elements per page is 30.
 
 This pipeline is scheduled hourly, so we can wait 1 hour for the pipeline to run or run our Step Functions' State Machines manually.
 
