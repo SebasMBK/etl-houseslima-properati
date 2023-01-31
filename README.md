@@ -29,7 +29,7 @@ The tools that were used for the project are:
 
 ## Project's requirements
 These next requirements need to be installed locally for the correct functioning of the solution:
-1. [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) for account configuring and terraform provisioning.
+1. [AWS CLI](https://aws.amazon.com/es/cli/) for account configuring and terraform provisioning.
 2. [AWS CLI Lighstail plugin](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-install-software) for deploying our containers and pushing the docker images to the AWS Lightsail Containers' Repository.
 3. [Terraform](https://www.terraform.io/) to provision the infraestructure.
 4. [Docker](https://www.docker.com/) to containerize the Flask REST API App image.
