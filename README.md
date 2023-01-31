@@ -15,7 +15,7 @@ The tools that were used for the project are:
 - [Terraform](https://www.terraform.io/) as IaC for the infra provisioning.
 - [Docker](https://www.docker.com/) for containerizing our FLASK APP.
 - [Insomnia](https://insomnia.rest/) and [Flask](https://flask.palletsprojects.com/en/2.2.x/) for testing and developing our REST API.
-- [pytest](https://docs.pytest.org/en/7.2.x/) for testing the response we recieve from the webpage.
+- [Pytest](https://docs.pytest.org/en/7.2.x/) for testing the response we receive from the webpage.
 - [Python](https://www.python.org/) as the main programming language.
 
 ## Project's Architecture
