@@ -35,13 +35,13 @@ These next requirements need to be installed locally for the correct functioning
 4. [Docker](https://www.docker.com/) to containerize the Flask REST API App image.
 
 ## Start Pipeline
-For testing, let's go to our root folder and run: \
+For testing, let's go to our root folder and run: 
 
-`pytest`: This will run some tests to make sure the web page works as we want to. \
+`pytest`: This will run some tests to make sure the web page works as we want to. 
 1. The first test will make sure that we recieve the response 200, meaning that the webpage exists and we have access to it.
 2. The second test will make sure that the limit of elements per page is 30. 
           
-Now to create the pipeline, terraform will initialize everything that we need. Just clone the repo and execute the next commands inside the terraform folder: \
+Now to create the pipeline, terraform will initialize everything that we need. Just clone the repo and execute the next commands inside the terraform folder: 
 1.  `aws configure`: This command is used to login into an AWS Account using your secret access keys. 
 2.  `terraform init`: This will initiate terraform in the folder.
 3.  `terraform apply`: This will create our infraestructure. You will be prompt to input a redshift password and user. 
