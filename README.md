@@ -36,9 +36,10 @@ These next requirements need to be installed locally for the correct functioning
 
 ## Start Pipeline
 For testing, let's go to our root folder and run: \
+\
 `pytest`: This will run some tests to make sure the web page works as we want to. \
           The first test will make sure that we recieve the response 200, meaning that the webpage exists and we have access to it.\
-          The second test will make sure that the limit of elements per page is 30.\
+          The second test will make sure that the limit of elements per page is 30. \
           
 Now to create the pipeline, terraform will initialize everything that we need. Just clone the repo and execute the next commands inside the terraform folder:\
 1.  `aws configure`: This command is used to login into an AWS Account using your secret access keys. \
